@@ -1,2 +1,2 @@
 # python-machine-learning
-My Jupiter notes when reading the book Python Machine Learning (3rd Edition) by Sebastian Raschka and Vahid Mirjalili
+To prepare for my undergraduate research position, I decided to learn the basics of Machine Learning. I use this repo to store the Jupyter notebook, I wrote while reading each chapter.
