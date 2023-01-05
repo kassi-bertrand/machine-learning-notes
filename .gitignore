@@ -1,2 +1,6 @@
 .ipynb_checkpoints
+
+#Chp 12 data files
+
+chp12/mnist_scaled.npz
 **/dataset/
