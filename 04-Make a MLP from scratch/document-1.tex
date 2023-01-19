@@ -1,0 +1,37 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} %Latex package to import graphics (i.e. images)
+\title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
+\author{Kassi Bertrand}
+\date{January 2023}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+In this \LaTeX{} document, I want to show my step-by-step process
+to derive the partial derivative of all the weights in $W^{(out)}$.
+
+\vspace{5mm} %5mm vertical space
+
+I'll start simple with a 2-2-2 MLP, which is a Multi-Layer Perceptron
+with 2 inputs, 2 hidden units, and 2 outputs, and then generalize
+what we learn to a general $m-d-t$ MLP.
+
+\vspace{5mm} %5mm vertical space
+
+In both cases, I will use the following loss/error function:
+\[J(w) = -\sum\nolimits_{i = 1}^{n}\sum\nolimits_{j=1}^{t} y_j^{[i]} ln(a_j^{[i]}) + (1 - y_j^{[i]})ln(1 - a_j^{[i]})]\]
+
+
+\vspace{5mm} %5mm vertical space
+
+Ready? Let's go!
+
+\section{With a 2-2-2 MLP}
+
+For this example, we will use the following Neural network. We'll
+ignore biases for simplicity purposes. Also, we'll be considering
+only ONE example.
+
+\section{With a general m-d-t MLP}
+\end{document}
