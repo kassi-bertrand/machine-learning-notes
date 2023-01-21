@@ -1,5 +1,7 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage{graphicx} %Latex package to import graphics (i.e. images)
+\usepackage{forest} %Latex package to draw tree diagram
+\usepackage{subfigure} %Latex package to provide support for small figures
 \graphicspath{{etc}}
 \title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
 \author{Kassi Bertrand}
@@ -56,7 +58,7 @@ function becomes like this:
 \vspace{5mm} %5mm vertical space
 
 The journey of a SINGLE training example from the input layer to
-the output layer goes like this:
+the output layer of our network goes like this:
 
 \vspace{5mm} %5mm vertical space
 
@@ -78,7 +80,83 @@ the output layer goes like this:
 \[\phi(\bullet)\]
 \[\downarrow\]
 \[[a_1^{(out)}, a_2^{(out)}]\]
+\[\downarrow\]
+\[[y_1, y_2]\]
 \pagebreak
+
+Now, let's compute the derivative of each  weights in the
+$W^{(out)}$ matrix. To help myself, I drew the following
+tree diagram to see how the variables in $J(W)$ relate to 
+the weights in $W^{(out)}$:
+
+\vspace{5mm} %5mm vertical space
+
+\begin{figure}[h!]
+    \centering
+    \begin{forest}
+        for tree={
+            l sep=30pt,
+            parent anchor=south,
+            align=center
+        }
+            [$J(W)$
+            [$y_1$]
+            [$a_1^{(out)}$
+                [$z_1^{(out)}$
+                    [$w_{1,1}^{(out)}$]
+                    [$w_{2,1}^{(out)}$]
+                ]
+            ]
+            [$y_2$]
+            [$a_2^{(out)}$
+                [$z_2^{(out)}$
+                    [$w_{1,2}^{(out)}$]
+                    [$w_{2,2}^{(out)}$]
+                ]
+            ]
+            ]
+    \end{forest}
+\end{figure}
+
+Our MLP has two outputs. If you look at $J(W)$ expression 
+closely, we compute the cost for each output, then add the results
+together. And that's how we get the cost for the current training
+example. With that in mind, we can now compute the partial
+derivatives:
+
+\vspace{5mm} %5mm vertical space
+
+\[
+    \frac{\partial J(W)}{\partial w_{1,1}^{(out)}} = 
+    \frac{\partial J(W)}{\partial a_{1}^{(out)}} \times
+    \frac{\partial a_{1}^{(out)}}{\partial z_{1}^{(out)}} \times
+    \frac{\partial z_{1}^{(out)}}{\partial w_{1,1}^{(out)}}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{2,1}^{(out)}} = 
+    \frac{\partial J(W)}{\partial a_{1}^{(out)}} \times
+    \frac{\partial a_{1}^{(out)}}{\partial z_{1}^{(out)}} \times
+    \frac{\partial z_{1}^{(out)}}{\partial w_{2,1}^{(out)}}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{1,2}^{(out)}} = 
+    \frac{\partial J(W)}{\partial a_{2}^{(out)}} \times
+    \frac{\partial a_{2}^{(out)}}{\partial z_{2}^{(out)}} \times
+    \frac{\partial z_{2}^{(out)}}{\partial w_{1,2}^{(out)}}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{2,2}^{(out)}} = 
+    \frac{\partial J(W)}{\partial a_{2}^{(out)}} \times
+    \frac{\partial a_{2}^{(out)}}{\partial z_{2}^{(out)}} \times
+    \frac{\partial z_{2}^{(out)}}{\partial w_{2,2}^{(out)}}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+
 
 \section{With a general $m-d-t$ MLP}
 \end{document}
