@@ -35,7 +35,7 @@ Ready? Let's go!
 \pagebreak
 \section{With a 2-2-2 MLP}
 
-For this example, we will use the following Neural network:
+For this example, we will consider the following Neural network:
 
 %2-2-2 MLP picture
 \begin{center}
@@ -156,7 +156,62 @@ derivatives:
 
 \vspace{5mm} %5mm vertical space
 
+Notice, the following expressions are common in the first two and
+last two equations. Let's evaluate them:
 
+\[
+    \frac{\partial J(W)}{\partial a_{1}^{(out)}} \times
+    \frac{\partial a_{1}^{(out)}}{\partial z_{1}^{(out)}} = 
+    (a_{1}^{(out)} - y_1) = \delta_1^{(out)}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial a_{2}^{(out)}} \times
+    \frac{\partial a_{2}^{(out)}}{\partial z_{2}^{(out)}} = 
+    (a_{2}^{(out)} - y_2) = \delta_2^{(out)}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+$(a_{1}^{(out)} - y_1)$ and $(a_{2}^{(out)} - y_2)$ are the 
+``\textbf{error}" terms in the output layer. Since our MLP
+has two outputs, we have two ``error" terms as well. We use 
+``$\delta$" to denote that ``error". $\delta_1^{(out)}$ for 
+instance, is the error in the first activation unit in the 
+output layer.
+
+\vspace{5mm} %5mm vertical space
+
+With this new knowledge, we can re-write the partial derivatives:
+
+\[
+    \frac{\partial J(W)}{\partial w_{1,1}^{(out)}} =
+    \delta_1^{(out)} a_1^{(h)}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{2,1}^{(out)}} =
+    \delta_1^{(out)} a_2^{(h)}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{1,2}^{(out)}} =
+    \delta_2^{(out)} a_1^{(h)}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{2,2}^{(out)}} =
+    \delta_2^{(out)} a_2^{(h)}
+\]
+
+From the above, I can now introduce the $\delta^{(out)}$ matrix.
+It is a $n \times t$ matrix; where $n$ is the number of training
+example and $t$ the number of activation units in the output layer.
+Since we are dealing with \underline{ONE} example and our MLP 
+has \underline{2} outputs, the $\delta^(out)$ matrix is of the 
+shape $(1 \times 2)$.
+
+\vspace{5mm} %5mm vertical space
 
 \section{With a general $m-d-t$ MLP}
 \end{document}
