@@ -2,6 +2,7 @@
 \usepackage{graphicx} %Latex package to import graphics (i.e. images)
 \usepackage{forest} %Latex package to draw tree diagram
 \usepackage{subfigure} %Latex package to provide support for small figures
+\usepackage{amsmath}
 \graphicspath{{etc}}
 \title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
 \author{Kassi Bertrand}
@@ -12,7 +13,8 @@
 
 \section{Introduction}
 In this \LaTeX{} document, I want to show my step-by-step process
-to derive the partial derivative of all the weights in $W^{(out)}$.
+to derive the partial derivative of the loss function with respect
+to of all the weights in $W^{(out)}$.
 
 \vspace{5mm} %5mm vertical space
 
@@ -53,7 +55,7 @@ Since one training example is considered and the network has
 two output units, then  $n = 1$ and $t = 2$. So, the loss 
 function becomes like this:
 
-\[J(w) = -\sum\nolimits_{j=1}^{t} y_j^{[1]} ln(a_j^{[1]}) + (1 - y_j^{[1]})ln(1 - a_j^{[1]})\]
+\[J(w) = -\sum\nolimits_{j=1}^{2} y_j^{[1]} ln(a_j^{[1]}) + (1 - y_j^{[1]})ln(1 - a_j^{[1]})\]
 
 \vspace{5mm} %5mm vertical space
 
@@ -84,10 +86,10 @@ the output layer of our network goes like this:
 \[[y_1, y_2]\]
 \pagebreak
 
-Now, let's compute the derivative of each  weights in the
-$W^{(out)}$ matrix. To help myself, I drew the following
-tree diagram to see how the variables in $J(W)$ relate to 
-the weights in $W^{(out)}$:
+Now, let's compute the partial derivative of $J(W)$ w.r.t to
+each  weights in the $W^{(out)}$ matrix. To help myself, 
+I drew the followingtree diagram to see how the variables 
+in $J(W)$ relate to the weights in $W^{(out)}$:
 
 \vspace{5mm} %5mm vertical space
 
@@ -118,9 +120,10 @@ the weights in $W^{(out)}$:
     \end{forest}
 \end{figure}
 
-Our MLP has two outputs. If you look at $J(W)$ expression 
-closely, we compute the cost for each output, then add the results
-together. And that's how we get the cost for the current training
+Our MLP has two outputs, and if you look at $J(W)$ 
+closely, you'll see that it's a \textbf{sum}. So, we compute 
+the cost for \underline{each} output, then add the results together. 
+And that's how we get the cost for the current training
 example. With that in mind, we can now compute the partial
 derivatives:
 
@@ -205,11 +208,12 @@ With this new knowledge, we can re-write the partial derivatives:
 \]
 
 From the above, I can now introduce the $\delta^{(out)}$ matrix.
-It is a $n \times t$ matrix; where $n$ is the number of training
-examples and $t$ the number of activation units in the output layer.
-Since we are dealing with \underline{ONE} example and our MLP 
-has \underline{2} outputs, so the $\delta^{(out)}$ matrix is of the 
-shape $(1 \times 2)$, and looks like this:
+It is our ``error'' matrix, and is of the shape $n \times t$ 
+where $n$ is the number of training examples and $t$ the number 
+of activation units in the output layer. Since we are dealing with
+\underline{ONE} example and our MLP has \underline{2} outputs, so 
+the $\delta^{(out)}$ matrix is of the shape $(1 \times 2)$, and 
+looks like this:
 
 \[
     \delta^{(out)} = [\delta_1^{(out)}, \delta_2^{(out)}] =
@@ -220,15 +224,47 @@ shape $(1 \times 2)$, and looks like this:
 
 Also, remember the $A^{(h)}$ matrix, obtained after training
 examples are forward propagated from the input to the hidden layer.
+It is a $(n \times d)$ matrix; where $n$ is the number of training
+examples and $d$ the number of activation units in the hidden layer.
 Since we have \underline{ONE} training example and \underline{2}
-units in the hidden layer. So $A^{(h)}$, is also of the shape
+units in the hidden layer, our $A^{(h)}$ matrix is of the shape
 $(1 \times 2)$, and looks like this:
 
 \[
     A^{(h)} = [a_1^{[1]}, a_2^{[1]}]
 \]
 
+We computed the partial derivatives with respect to the weights in
+$W^{(out)}$ above. But we can implement the same operations in 
+vectorized form? Yes, of course! Look at this:
 
+\[
+    (A^{(h)})^{T} \delta^{(out)}
+    =
+    \begin{bmatrix}
+        a_1^{[1]} \\
+        a_2^{[1]}
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        \delta_1^{(out)} & \delta_2^{(out)}
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        a_1^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_1^{(out)} \\
+        a_1^{(h)} \delta_2^{(out)} & a_2^{(h)} \delta_2^{(out)}
+    \end{bmatrix}
+\]
+
+See? By transposing the $A^{(h)}$ and multiplying it with
+$\delta^{(out)}$, we obtain a new matrix containing the partial
+derivatives of $J(W)$ w.r.t to each weights in $W^{(out)}$.
+
+\vspace{5mm} %5mm vertical space
+
+We can see that for our 2-2-2 MLP, $\frac{\partial J(W)}
+{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$.
+Can we show this relationship holds for a general MLP?
 
 \section{With a general $m-d-t$ MLP}
 \end{document}
