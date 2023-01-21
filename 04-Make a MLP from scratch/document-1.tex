@@ -206,12 +206,26 @@ With this new knowledge, we can re-write the partial derivatives:
 
 From the above, I can now introduce the $\delta^{(out)}$ matrix.
 It is a $n \times t$ matrix; where $n$ is the number of training
-example and $t$ the number of activation units in the output layer.
+examples and $t$ the number of activation units in the output layer.
 Since we are dealing with \underline{ONE} example and our MLP 
-has \underline{2} outputs, the $\delta^(out)$ matrix is of the 
-shape $(1 \times 2)$.
+has \underline{2} outputs, so the $\delta^{(out)}$ matrix is of the 
+shape $(1 \times 2)$, and looks like this:
+
+\[
+    \delta^{(out)} = [\delta_1^{(out)}, \delta_2^{(out)}] =
+    [(a_{1}^{(out)} - y_1), (a_{2}^{(out)} - y_2)]
+\]
 
 \vspace{5mm} %5mm vertical space
+
+Also, remember the $a^{(h)}$ vector, obtained after our training
+example is forward propagated from the input to the hidden layer:
+
+\[
+    a^{(h)} = [a_2^{(h)}, a_2^{(h)}]
+\]
+
+
 
 \section{With a general $m-d-t$ MLP}
 \end{document}
