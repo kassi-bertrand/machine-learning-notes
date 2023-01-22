@@ -244,8 +244,8 @@ below, we get:
 
 \[
     \begin{bmatrix}
-        a_1^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_1^{(out)} \\
-        a_1^{(h)} \delta_2^{(out)} & a_2^{(h)} \delta_2^{(out)}
+        \delta_1^{(out)} a_1^{(h)} & \delta_1^{(out)} a_2^{(h)} \\
+        \delta_2^{(out)} a_1^{(h)} & \delta_2^{(out)} a_2^{(h)}
     \end{bmatrix}
     =
     \begin{bmatrix}
@@ -431,7 +431,7 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{1,t}^{(out)}} = 
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}}\times
-    \frac{\partial z_{t}^{[i]}}{\partial w_{1,2}^{(out)}}
+    \frac{\partial z_{t}^{[i]}}{\partial w_{1,2}^{(out)}} =
     \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_1^{(h)}=
     \textcolor{orange}{\delta_t^{(out)}}a_1^{(h)}
 \]
@@ -440,7 +440,7 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{2,t}^{(out)}} = 
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}}\times
-    \frac{\partial z_{t}^{[i]}}{\partial w_{2,2}^{(out)}}
+    \frac{\partial z_{t}^{[i]}}{\partial w_{2,2}^{(out)}} =
     \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_2^{(h)}=
     \textcolor{orange}{\delta_t^{(out)}}a_2^{(h)}
 \]
@@ -451,12 +451,43 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{d,t}^{(out)}} = 
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}} \times
-    \frac{\partial z_{t}^{[i]}}{\partial w_{d,t}^{(out)}}
+    \frac{\partial z_{t}^{[i]}}{\partial w_{d,t}^{(out)}} =
     \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_d^{(h)}=
     \textcolor{orange}{\delta_t^{(out)}}a_d^{(h)}
 \]
 
-This time, I made sure to highlight common terms.
+\vspace{5mm} %5mm vertical space
+
+This time, I made sure to highlight common terms, and write the
+expressions in terms of the ``error'' term.
+
+\vspace{5mm} %5mm vertical space
+
+Again, we can introduce our $\delta^{(out)}$ matrix like before.
+Recall this matrix is of the shape $n \times t$ where $n$ is the
+number of training examples, and $t$ is the number of activation
+units in the outptut layer. Since we are dealing with \underline{ONE}
+training examples, and our MLP has \underline{t} outputs, so the
+$\delta^{(out)}$ matrix is of the shape $(1 \times t)$, and looks
+like this:
+
+\[
+    \delta^{(out)} = [\delta_1^{(out)}, \delta_2^{(out)}, \cdots, \delta_t^{(out)}] =
+    [(a_{1}^{[i]} - y_1), (a_{2}^{[i]} - y_2), \cdots, (a_{t}^{[i]} - y_t)]
+\]
+
+Remember the $A^{(h)}$ matrix? It is of the shape $(n \times d)$
+obtained after a training example is forward propagated from the
+input to the hidden layer. Since we have \underline{ONE} example
+and our MLP has \underline{$d$} activation units in its hidden
+layer, so our $A^{(h)}$ matrix looks like this:
+
+\[
+    A^{(h)} = [a_1^{(h)}, a_2^{(h)}, \cdots, a_d^{(h)}]
+\]
+
+As you probably know by now, we can also write the partial derivative
+we computed earlier in vectorized form.
 
 \section{Challenge}
 
