@@ -230,7 +230,7 @@ units in the hidden layer, our $A^{(h)}$ matrix is of the shape
 $(1 \times 2)$, and looks like this:
 
 \[
-    A^{(h)} = [a_1^{[1]}, a_2^{[1]}]
+    A^{(h)} = [a_1^{(h)}, a_2^{(h)}]
 \]
 
 We computed the partial derivatives with respect to the weights in
@@ -249,8 +249,8 @@ below, we get:
     \end{bmatrix}
     =
     \begin{bmatrix}
-        a_1^{[1]} \\
-        a_2^{[1]}
+        a_1^{(h)} \\
+        a_2^{(h)}
     \end{bmatrix}
     \times
     \begin{bmatrix}
@@ -369,14 +369,18 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{1,1}^{(out)}} = 
     \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
     \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}}\times
-    \frac{\partial z_{1}^{[i]}}{\partial w_{1,1}^{(out)}}
+    \frac{\partial z_{1}^{[i]}}{\partial w_{1,1}^{(out)}} =
+    \textcolor{red}{(a_{1}^{[i]} - y_1)} a_1^{(h)} =
+    \textcolor{red}{\delta_1^{(out)}}a_1^{(h)}
 \]
 
 \[
     \frac{\partial J(W)}{\partial w_{2,1}^{(out)}} = 
     \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
     \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}}\times
-    \frac{\partial z_{1}^{[i]}}{\partial w_{2,1}^{(out)}}
+    \frac{\partial z_{1}^{[i]}}{\partial w_{2,1}^{(out)}} =
+    \textcolor{red}{(a_{1}^{[i]} - y_1)} a_2^{(h)} =
+    \textcolor{red}{\delta_1^{(out)}}a_2^{(h)}
 \]
 
 \[\vdots\]
@@ -385,7 +389,9 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{d,1}^{(out)}} = 
     \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
     \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}} \times
-    \frac{\partial z_{1}^{[i]}}{\partial w_{d,1}^{(out)}}
+    \frac{\partial z_{1}^{[i]}}{\partial w_{d,1}^{(out)}}=
+    \textcolor{red}{(a_{1}^{[i]} - y_1)} a_d^{(h)} =
+    \textcolor{red}{\delta_1^{(out)}}a_d^{(h)}
 \]
 
 \pagebreak
