@@ -234,10 +234,18 @@ $(1 \times 2)$, and looks like this:
 
 We computed the partial derivatives with respect to the weights in
 $W^{(out)}$ above. But we can implement the same operations in 
-vectorized form? Yes, of course! Look at this:
+vectorized form? Yes, of course!
+
+\vspace{5mm} %5mm vertical space
+
+If we arrange the four partial derivatives above in a matrix like
+below, we get:
 
 \[
-    (A^{(h)})^{T} \delta^{(out)}
+    \begin{bmatrix}
+        a_1^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_1^{(out)} \\
+        a_1^{(h)} \delta_2^{(out)} & a_2^{(h)} \delta_2^{(out)}
+    \end{bmatrix}
     =
     \begin{bmatrix}
         a_1^{[1]} \\
@@ -248,10 +256,7 @@ vectorized form? Yes, of course! Look at this:
         \delta_1^{(out)} & \delta_2^{(out)}
     \end{bmatrix}
     = 
-    \begin{bmatrix}
-        a_1^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_1^{(out)} \\
-        a_1^{(h)} \delta_2^{(out)} & a_2^{(h)} \delta_2^{(out)}
-    \end{bmatrix}
+    (A^{(h)})^{T} \delta^{(out)}
 \]
 
 See? By transposing the $A^{(h)}$ and multiplying it with
