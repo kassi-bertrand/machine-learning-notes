@@ -2,7 +2,8 @@
 \usepackage{graphicx} %Latex package to import graphics (i.e. images)
 \usepackage{forest} %Latex package to draw tree diagram
 \usepackage{subfigure} %Latex package to provide support for small figures
-\usepackage{amsmath}
+\usepackage{amsmath} %Latex package for math stuff
+\usepackage{xcolor} %Latex package for color usage
 \graphicspath{{etc}}
 \title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
 \author{Kassi Bertrand}
@@ -359,6 +360,39 @@ to what we had for the 2-2-2 MLP.
             ]
     \end{forest}
 \end{figure}
+
+Using our shiny tree diagram, let's compute the partial derivatives
+
+\vspace{5mm} %5mm vertical space
+
+\[
+    \frac{\partial J(W)}{\partial w_{1,1}^{(out)}} = 
+    \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
+    \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}}\times
+    \frac{\partial z_{1}^{[i]}}{\partial w_{1,1}^{(out)}}
+\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{2,1}^{(out)}} = 
+    \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
+    \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}}\times
+    \frac{\partial z_{1}^{[i]}}{\partial w_{2,1}^{(out)}}
+\]
+
+\[\vdots\]
+
+\[
+    \frac{\partial J(W)}{\partial w_{d,1}^{(out)}} = 
+    \textcolor{red}{\frac{\partial J(W)}{\partial a_{1}^{[i]}}\times}
+    \textcolor{red}{\frac{\partial a_{1}^{[i]}}{\partial z_{1}^{[i]}}} \times
+    \frac{\partial z_{1}^{[i]}}{\partial w_{d,1}^{(out)}}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+
+
+This time, I made sure to highlight common terms.
 
 \section{Challenge}
 
