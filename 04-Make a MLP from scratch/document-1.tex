@@ -477,17 +477,49 @@ like this:
 \]
 
 Remember the $A^{(h)}$ matrix? It is of the shape $(n \times d)$
-obtained after a training example is forward propagated from the
+obtained after a training examples are forward propagated from the
 input to the hidden layer. Since we have \underline{ONE} example
 and our MLP has \underline{$d$} activation units in its hidden
-layer, so our $A^{(h)}$ matrix looks like this:
+layer, the $A^{(h)}$ matrix is of the shape $(1 \times d)$ and 
+looks like this:
 
 \[
     A^{(h)} = [a_1^{(h)}, a_2^{(h)}, \cdots, a_d^{(h)}]
 \]
 
-As you probably know by now, we can also write the partial derivative
-we computed earlier in vectorized form.
+As you probably know by now, we can also write the partial derivatives
+we computed earlier in vectorized form. It looks likes this:
+
+\[
+    \begin{bmatrix}
+        \delta_1^{(out)} a_1^{(h)} & \delta_1^{(out)} a_2^{(h)} & \dots     & \delta_1^{(out)} a_d^{(h)}\\
+        \delta_2^{(out)} a_1^{(h)} & \delta_2^{(out)} a_2^{(h)} & \dots     & \delta_2^{(out)} a_d^{(h)}\\
+        \vdots                     & \vdots                     & \ddots    & \vdots                    \\
+        \delta_t^{(out)} a_1^{(h)} & \delta_t^{(out)} a_2^{(h)} & \dots     & \delta_t^{(out)} a_d^{(h)}\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a_1^{(h)} \\
+        a_2^{(h)} \\
+        \vdots \\
+        a_d^{(h)}
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        \delta_1^{(out)} & \delta_2^{(out)} & \dots & \delta_t^{(out)}
+    \end{bmatrix}
+    = 
+    (A^{(h)})^{T} \delta^{(out)}
+\]
+
+By transposing the $A^{(h)}$ and multiplying it with
+$\delta^{(out)}$, we obtain a new matrix containing the partial
+derivatives of $J(W)$ w.r.t to each weights in $W^{(out)}$.
+
+\vspace{5mm} %5mm vertical space
+
+Here again, we see that for our $m-d-t$ MLP, $\frac{\partial J(W)}
+{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$.
 
 \section{Challenge}
 
