@@ -6,7 +6,7 @@
 \graphicspath{{etc}}
 \title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
 \author{Kassi Bertrand}
-\date{January 2023}
+\date{January $19^{th}$, 2023}
 
 \begin{document}
 \maketitle
@@ -267,4 +267,45 @@ We can see that for our 2-2-2 MLP, $\frac{\partial J(W)}
 Can we show this relationship holds for a general MLP?
 
 \section{With a general $m-d-t$ MLP}
+
+Let's consider a general MLP like the following:
+
+%General MLP picture
+\begin{center}
+    \includegraphics[width = 16cm, height = 9cm]{mlp.png}
+\end{center}
+
+Here again, we will consider \underline{ONE} training example.
+
+\vspace{5mm} %5mm vertical space
+
+Here is what the journey of SINGLE of a training example from 
+the input layer to the output layer looks like:
+
+\pagebreak
+\[[a_1^{(in)}, a_2^{(in)}, \cdots, a_m^{(in)}]\]
+\[\downarrow\]
+\[W^{(h)}\]
+\[\downarrow\]                  
+\[[z_1^{(h)}, z_2^{(h)}, \cdots, z_d^{(h)}]\]
+\[\downarrow\]
+\[\phi(\bullet)\]
+\[\downarrow\]
+\[[a_1^{(h)}, a_2^{(h)}, \cdots, a_d^{(h)}]\]
+\[\downarrow\]
+\[W^{(out)}\]
+\[\downarrow\]                  
+\[[z_1^{(out)}, z_2^{(out)}, \cdots, z_t^{(out)}]\]
+\[\downarrow\]
+\[\phi(\bullet)\]
+\[\downarrow\]
+\[[a_1^{(out)}, a_2^{(out)}, \cdots, a_t^{(out)}]\]
+\[\downarrow\]
+\[[y_1, y_2, \cdots, y_t]\]
+\pagebreak
+
+\section{Challenge}
+
+Can you repeat everything we did, but considering $n$ training
+examples?
 \end{document}
