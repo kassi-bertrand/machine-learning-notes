@@ -400,14 +400,18 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{1,2}^{(out)}} = 
     \textcolor{blue}{\frac{\partial J(W)}{\partial a_{2}^{[i]}}\times}
     \textcolor{blue}{\frac{\partial a_{2}^{[i]}}{\partial z_{2}^{[i]}}}\times
-    \frac{\partial z_{2}^{[i]}}{\partial w_{1,2}^{(out)}}
+    \frac{\partial z_{2}^{[i]}}{\partial w_{1,2}^{(out)}} =
+    \textcolor{blue}{(a_{2}^{[i]} - y_1)}a_1^{(h)}=
+    \textcolor{blue}{\delta_2^{(out)}}a_1^{(h)}
 \]
 
 \[
     \frac{\partial J(W)}{\partial w_{2,2}^{(out)}} = 
     \textcolor{blue}{\frac{\partial J(W)}{\partial a_{2}^{[i]}}\times}
     \textcolor{blue}{\frac{\partial a_{2}^{[i]}}{\partial z_{2}^{[i]}}}\times
-    \frac{\partial z_{2}^{[i]}}{\partial w_{2,2}^{(out)}}
+    \frac{\partial z_{2}^{[i]}}{\partial w_{2,2}^{(out)}} =
+    \textcolor{blue}{(a_{2}^{[i]} - y_2)}a_1^{(h)}=
+    \textcolor{blue}{\delta_2^{(out)}}a_2^{(h)}
 \]
 
 \[\vdots\]
@@ -416,7 +420,9 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \frac{\partial J(W)}{\partial w_{d,2}^{(out)}} = 
     \textcolor{blue}{\frac{\partial J(W)}{\partial a_{2}^{[i]}}\times}
     \textcolor{blue}{\frac{\partial a_{2}^{[i]}}{\partial z_{2}^{[i]}}} \times
-    \frac{\partial z_{2}^{[i]}}{\partial w_{d,2}^{(out)}}
+    \frac{\partial z_{2}^{[i]}}{\partial w_{d,2}^{(out)}} =
+    \textcolor{blue}{(a_{2}^{[i]} - y_2)}a_d^{(h)}=
+    \textcolor{blue}{\delta_2^{(out)}}a_d^{(h)}
 \]
 
 \vspace{5mm} %5mm vertical space
@@ -426,6 +432,8 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}}\times
     \frac{\partial z_{t}^{[i]}}{\partial w_{1,2}^{(out)}}
+    \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_1^{(h)}=
+    \textcolor{orange}{\delta_t^{(out)}}a_1^{(h)}
 \]
 
 \[
@@ -433,6 +441,8 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}}\times
     \frac{\partial z_{t}^{[i]}}{\partial w_{2,2}^{(out)}}
+    \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_2^{(h)}=
+    \textcolor{orange}{\delta_t^{(out)}}a_2^{(h)}
 \]
 
 \[\vdots\]
@@ -442,6 +452,8 @@ Using our shiny tree diagram, let's compute the partial derivatives:
     \textcolor{orange}{\frac{\partial J(W)}{\partial a_{t}^{[i]}}\times}
     \textcolor{orange}{\frac{\partial a_{t}^{[i]}}{\partial z_{t}^{[i]}}} \times
     \frac{\partial z_{t}^{[i]}}{\partial w_{d,t}^{(out)}}
+    \textcolor{orange}{(a_{t}^{[i]} - y_t)}a_d^{(h)}=
+    \textcolor{orange}{\delta_t^{(out)}}a_d^{(h)}
 \]
 
 This time, I made sure to highlight common terms.
