@@ -15,7 +15,7 @@
 \section{Introduction}
 In this \LaTeX{} document, I want to show my step-by-step process
 to derive the partial derivative of the loss function with respect
-to of all the weights in $W^{(out)}$.
+to all the weights in $W^{(out)}$.
 
 \vspace{5mm} %5mm vertical space
 
@@ -244,8 +244,8 @@ below, we get:
 
 \[
     \begin{bmatrix}
-        \delta_1^{(out)} a_1^{(h)} & \delta_2^{(out)} a_1^{(h)} \\
-        \delta_1^{(out)} a_2^{(h)} & \delta_2^{(out)} a_2^{(h)}
+        a_1^{(h)} \delta_1^{(out)} & a_1^{(h)} \delta_2^{(out)} \\
+        a_2^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_2^{(out)}
     \end{bmatrix}
     =
     \begin{bmatrix}
@@ -493,10 +493,10 @@ we computed earlier in vectorized form. It looks likes this:
 
 \[
     \begin{bmatrix}
-        \delta_1^{(out)} a_1^{(h)} & \delta_2^{(out)} a_1^{(h)} & \dots     & \delta_t^{(out)} a_1^{(h)}\\
-        \delta_1^{(out)} a_2^{(h)} & \delta_2^{(out)} a_2^{(h)} & \dots     & \delta_t^{(out)} a_2^{(h)}\\
+        a_1^{(h)} \delta_1^{(out)} & a_1^{(h)} \delta_2^{(out)} & \dots     & a_1^{(h)} \delta_t^{(out)}\\
+        a_2^{(h)} \delta_1^{(out)} & a_2^{(h)} \delta_2^{(out)} & \dots     & a_2^{(h)} \delta_t^{(out)}\\
         \vdots                     & \vdots                     & \ddots    & \vdots                    \\
-        \delta_1^{(out)} a_d^{(h)} & \delta_2^{(out)} a_d^{(h)} & \dots     & \delta_t^{(out)} a_d^{(h)}\\
+        a_d^{(h)} \delta_1^{(out)} & a_d^{(h)} \delta_2^{(out)} & \dots     & a_d^{(h)} \delta_t^{(out)}\\
     \end{bmatrix}
     =
     \begin{bmatrix}
@@ -522,8 +522,14 @@ derivatives of $J(W)$ w.r.t to \emph{each} weights in $W^{(out)}$.
 Here again, we see that for our $m-d-t$ MLP, $\frac{\partial J(W)}
 {\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$.
 
-\section{Challenge}
+\section{Challenges}
 
-Can you repeat everything we did, but considering $n$ training
-examples?
+\begin{itemize}
+    \item Can you repeat everything we did, but considering $n$ training
+    examples?
+
+    \item You probably noticed that we ignored the bias units in 
+    the hidden layer till now. Can you show that
+\end{itemize}
+
 \end{document}
