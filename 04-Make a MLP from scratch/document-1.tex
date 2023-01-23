@@ -26,7 +26,7 @@ what we learn to a general $m-d-t$ MLP.
 \vspace{5mm} %5mm vertical space
 
 In both cases, I will use the following loss/error function:
-\[J(w) = -\sum\nolimits_{i = 1}^{n}\sum\nolimits_{j=1}^{t} y_j^{[i]} ln(a_j^{[i]}) + (1 - y_j^{[i]})ln(1 - a_j^{[i]})\]
+\[J(w) = -\sum_{i = 1}^{n}\sum_{j=1}^{t} y_j^{[i]} ln(a_j^{[i]}) + (1 - y_j^{[i]})ln(1 - a_j^{[i]})\]
 
 Where the superscript $[i]$ is an index for training examples,
 and $j$ is the number of output units.
@@ -529,7 +529,20 @@ Here again, we see that for our $m-d-t$ MLP, $\frac{\partial J(W)}
     examples?
 
     \item You probably noticed that we ignored the bias units in 
-    the hidden layer till now. Can you show that
+    the hidden layer till now. Can you show that the partial
+    derivative of $J(W)$ with respect to weight connections:
+    $w_{0,1}^{(out)}, w_{0,2}^{(out)}, \dots, w_{0,t}^{(out)}$,
+    when considering $n$ examples is equal to:
+    \[
+        \begin{bmatrix}
+            \sum_{i=1}^{n} \delta_1^{[i]} & \sum_{i=1}^{n} \delta_2^{[i]} & \dots & \sum_{i=1}^{n} \delta_t^{[i]}
+        \end{bmatrix}
+    \]
+    \vspace{5mm} %5mm vertical space
+
+    \underline{Remember}: bias units have value: \underline{$1$},
+    and $[i]$ is an index for training examples. 
+    
 \end{itemize}
 
 \end{document}
