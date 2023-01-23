@@ -244,8 +244,8 @@ below, we get:
 
 \[
     \begin{bmatrix}
-        \delta_1^{(out)} a_1^{(h)} & \delta_1^{(out)} a_2^{(h)} \\
-        \delta_2^{(out)} a_1^{(h)} & \delta_2^{(out)} a_2^{(h)}
+        \delta_1^{(out)} a_1^{(h)} & \delta_2^{(out)} a_1^{(h)} \\
+        \delta_1^{(out)} a_2^{(h)} & \delta_2^{(out)} a_2^{(h)}
     \end{bmatrix}
     =
     \begin{bmatrix}
@@ -493,10 +493,10 @@ we computed earlier in vectorized form. It looks likes this:
 
 \[
     \begin{bmatrix}
-        \delta_1^{(out)} a_1^{(h)} & \delta_1^{(out)} a_2^{(h)} & \dots     & \delta_1^{(out)} a_d^{(h)}\\
-        \delta_2^{(out)} a_1^{(h)} & \delta_2^{(out)} a_2^{(h)} & \dots     & \delta_2^{(out)} a_d^{(h)}\\
+        \delta_1^{(out)} a_1^{(h)} & \delta_2^{(out)} a_1^{(h)} & \dots     & \delta_t^{(out)} a_1^{(h)}\\
+        \delta_1^{(out)} a_2^{(h)} & \delta_2^{(out)} a_2^{(h)} & \dots     & \delta_t^{(out)} a_2^{(h)}\\
         \vdots                     & \vdots                     & \ddots    & \vdots                    \\
-        \delta_t^{(out)} a_1^{(h)} & \delta_t^{(out)} a_2^{(h)} & \dots     & \delta_t^{(out)} a_d^{(h)}\\
+        \delta_1^{(out)} a_d^{(h)} & \delta_2^{(out)} a_d^{(h)} & \dots     & \delta_t^{(out)} a_d^{(h)}\\
     \end{bmatrix}
     =
     \begin{bmatrix}
