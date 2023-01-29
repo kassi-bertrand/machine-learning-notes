@@ -16,8 +16,8 @@ In my understanding, PyTorch is:
 
 My supervisor said we are using PyTorch. Simple. 🙂
 
-# Overview 
+# Goal 🎯
 
-In this folder, I am familiarizing with PyTorch. I divide my notes in the following notebooks:
+In this folder, I am familiarizing with PyTorch using the following notebooks:
 
 1. `tensors.ipynb`: where I learn to build and manipulate PyTorch tensors.
