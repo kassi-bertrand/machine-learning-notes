@@ -1,6 +1,6 @@
 # What is PyTorch? 🤔💭
 
-PyTorch is a Machine Learning framework. It consists of a set of re-usable tools designed to help us build machine Learning models so we do not start entirely from sratch every time.
+[PyTorch](https://pytorch.org/) is a Machine Learning framework. It consists of a set of re-usable tools designed to help us build machine Learning models so we do not start entirely from sratch every time.
 
 In my understanding, PyTorch is:
 
@@ -15,3 +15,9 @@ In my understanding, PyTorch is:
 # Why PyTorch and not Tensorflow?
 
 My supervisor said we are using PyTorch. Simple. 🙂
+
+# Overview 
+
+In this folder, I am familiarizing with PyTorch. I divide my notes in the following notebooks:
+
+1. `tensors.ipynb`: where I learn to build and manipulate PyTorch tensors.
