@@ -18,6 +18,10 @@ My supervisor said we are using PyTorch. Simple. 🙂
 
 # Goal 🎯
 
-In this folder, I am familiarizing with PyTorch using the following notebooks:
+In this folder, the goal is to familiarize with PyTorch. Below, the notebooks containing my notes as I go. They will be created in the order listed:
 
-1. `tensors.ipynb`: where I learn to build and manipulate PyTorch tensors.
+1. `tensors.ipynb`: Where I learn to build and manipulate PyTorch tensors.
+
+2. `minigrad.ipynb`: Where I learn to build a small differentiation engine from sratch, thanks to Andrej Kaparthy. This is a stepping stone for the following notebook.
+
+3. `autograd.ipynb`: With the knowledge of the previous notes, I explore PyTorch's Autograd
