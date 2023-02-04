@@ -22,6 +22,6 @@ In this folder, the goal is to familiarize with PyTorch. Below, the notebooks co
 
 1. `tensors.ipynb`: Where I learn to build and manipulate PyTorch tensors.
 
-2. `micrograd.ipynb`: Where I learn to build a small differentiation engine from sratch, thanks to Andrej Kaparthy. This is a stepping stone for the following notebook.
+2. `micrograd.ipynb`: Where I learn to build a small differentiation engine from sratch, thanks to Andrej Kaparthy's [video](https://youtu.be/VMj-3S1tku0) on the subject.
 
-3. `autograd.ipynb`: With the knowledge of the previous notes, I explore PyTorch's Autograd
+3. `autograd.ipynb`: With the knowledge of the previous note, I explore PyTorch's Autograd
