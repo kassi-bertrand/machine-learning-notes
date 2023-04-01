@@ -1,0 +1,29 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+The Jacobian matrix we wrote earlier contains the gradients of all the
+weights in $W^{(out)}$ for \emph{only one} example. If a second training example goes 
+through the network, a new loss value is computed...  and a new gradient is computed
+for \emph{each} weight in $W^{(out)}$ during backpropagation. The new gradient of \emph{each} weight
+is \textbf{added} to the gradients of the same weight when backpropagation happened for the previous example.
+It's like they accummulate.
+
+\vspace{5mm} %5mm vertical space
+
+It looks like this matrix form, when $n$ training example go through the network:
+
+\[
+    \begin{bmatrix}
+        \sum_{i=1}^{n} a_1^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_1^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_1^{[i]}\delta_t^{[i]} \\
+        \sum_{i=1}^{n} a_2^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_2^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_2^{[i]}\delta_t^{[i]} \\
+        \vdots                                  & \vdots                                 & \ddots   & \vdots                                 \\
+        \sum_{i=1}^{n} a_d^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_d^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_d^{[i]}\delta_t^{[i]}
+    \end{bmatrix}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+The above matrix can be deconstructed in two seperate matrices giving the following
+
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+We considered ONE training example. When \emph{this} example is forward propagated
+through the network $a_1^{(out)}$, $a_2^{(out)}$, ..., $a_t^{(out)}$ get computed.
+
+\vspace{5mm} %5mm vertical space
+
+To backpropagate the error for this example from the output to the hidden layer, 
+we must know the gradients of the weights in the $W^{(out)}$ matrix.
+
+\vspace{5mm} %5mm vertical space
+
+The gradients of weights in $W^{(out)}$ are given by the following:
+
+\vspace{5mm} %5mm vertical space
+
+\begin{multicols}{3}
+
+    $\frac{\partial J(W)}{\partial w_{1,1}^{(out)}} = a_1^{(h)} \delta_1^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\frac{\partial J(W)}{\partial w_{2,1}^{(out)}} = a_2^{(h)} \delta_1^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\vdots$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\frac{\partial J(W)}{\partial w_{d,1}^{(out)}} = a_d^{(h)} \delta_1^{(out)}$
+    
+    \columnbreak
+
+    $\frac{\partial J(W)}{\partial w_{1,2}^{(out)}} = a_1^{(h)} \delta_2^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\frac{\partial J(W)}{\partial w_{2,2}^{(out)}} = a_2^{(h)} \delta_2^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\vdots$
+
+    \vspace{5mm} %5mm vertical space
+    
+    $\frac{\partial J(W)}{\partial w_{d,2}^{(out)}} = a_d^{(h)} \delta_2^{(out)}$
+
+    \columnbreak
+    
+    $\frac{\partial J(W)}{\partial w_{1,t}^{(out)}} = a_1^{(h)} \delta_t^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\frac{\partial J(W)}{\partial w_{2,t}^{(out)}} = a_2^{(h)} \delta_t^{(out)}$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\vdots$
+
+    \vspace{5mm} %5mm vertical space
+
+    $\frac{\partial J(W)}{\partial w_{d,t}^{(out)}} = a_d^{(h)} \delta_t^{(out)}$
+\end{multicols}
+
+\vspace{5mm} %5mm vertical space
+
+Conveniently enough, these gradients can be put in a matrix. Also known as \textbf{Jacobian matrix}.
+It gives the following:
+
+\[
+    \begin{bmatrix}
+        \frac{\partial J(W)}{\partial w_{1,1}^{(out)}} & \frac{\partial J(W)}{\partial w_{1,2}^{(out)}} & \dots & \frac{\partial J(W)}{\partial w_{1,t}^{(out)}} \\
+        \frac{\partial J(W)}{\partial w_{2,1}^{(out)}} & \frac{\partial J(W)}{\partial w_{2,2}^{(out)}} & \dots & \frac{\partial J(W)}{\partial w_{1,t}^{(out)}} \\
+        \vdots                                         & \vdots                                         & \ddots & \vdots \\
+        \frac{\partial J(W)}{\partial w_{d,1}^{(out)}} & \frac{\partial J(W)}{\partial w_{d,2}^{(out)}} & \dots & \frac{\partial J(W)}{\partial w_{d,t}^{(out)}}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a_1^{(h)} \delta_1^{(out)}  & a_1^{(h)} \delta_2^{(out)}    & \dots  & a_1^{(h)} \delta_t^{(out)}   \\
+        a_2^{(h)} \delta_1^{(out)}  & a_2^{(h)} \delta_2^{(out)}    & \dots  & a_2^{(h)} \delta_t^{(out)}   \\
+        \vdots                      & \vdots                        & \ddots & \vdots                       \\
+        a_d^{(h)} \delta_1^{(out)}  & a_d^{(h)} \delta_2^{(out)}    & \dots  & a_d^{(h)} \delta_t^{(out)}
+    \end{bmatrix}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+The above matrix is obtained after multiplying the following two vectors:
+
+\[
+    \begin{bmatrix}
+        a_1^{(h)} \\
+        a_2^{(h)} \\
+        \vdots \\
+        a_d^{(h)}
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        \delta_1^{(out)} & \delta_2^{(out)} & \dots & \delta_t^{(out)}
+    \end{bmatrix}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+If you followed closely, you'd notice that the above vectors are 1) the activation
+values in the hidden layer after the training example we considered goes through and
+2) the $\delta$ values we determined along the way. We can call this vector 
+$\delta^{(out)}$. So the above can be written as:
+
+\[
+    (a^{(h)})^{T} \delta^{(out)}
+\]
+
+\end{document}
