@@ -26,4 +26,23 @@ It looks like this matrix form, when $n$ training example go through the network
 
 The above matrix can be deconstructed in two seperate matrices giving the following
 
+\vspace{5mm} %5mm vertical space
+
+\[
+    \begin{bmatrix}
+        a_1^{[1]}   & a_1^{[2]} & \dots  & a_1^{[n]} \\
+        a_2^{[1]}   & a_2^{[2]} & \dots  & a_2^{[n]} \\
+        \vdots      & \vdots    & \ddots & \vdots    \\
+        a_d^{[1]}   & a_d^{[2]} & \dots  & a_d^{[n]}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta_1^{[1]}   & \delta_2^{[1]} & \dots  & \delta_t^{[1]} \\
+        \delta_1^{[2]}   & \delta_2^{[2]} & \dots  & \delta_t^{[2]} \\
+        \vdots      & \vdots    & \ddots & \vdots    \\
+        \delta_1^{[n]}   & \delta_2^{[n]} & \dots  & \delta_t^{[n]} 
+    \end{bmatrix}
+    =
+    (A^{(h)})^T \delta^{(out)}
+\]
+
 \end{document}
