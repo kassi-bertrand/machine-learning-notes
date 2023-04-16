@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+When reading Chapter 12: Implementing a Multilayer Artificial Neural Perceptron
+from Scractch, Dr. Raschka used the following formula to compute the partial 
+derivative of the loss function with respect to the all the weight in $W^{(out)}$
+when backpropagating:
+
+\[\frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}\]
+
+I did not understand it at first, but after many trials I now do. In this document,
+I want to walk you through how I computed the partial derivative of the loss function
+with respect to all the weights in $W^{(out)}$, and got to the result Sebastian presented in
+his book.
+
+\vspace{5mm} %5mm vertical space
+
+In chapter 12, Dr. Raschka used the following as the cost function:
+
+\[J(w) = -\sum_{i = 1}^{n}\sum_{j=1}^{t} y_j^{[i]} log(a_j^{[i]}) + (1 - y_j^{[i]})log(1 - a_j^{[i]})\]
+
+\pagebreak
+
+In $J(W)$:
+\vspace{5mm} %5mm vertical space
+\begin{itemize}
+    \item $n$ is the number of training examples.
+    \item Superscript $[i]$ refers to a specific training example.
+    \item $t$ is the number of activations in the last (outptut) layer.
+    \item Subscript $j$ refers to a specific output neuron.
+    \item $J(W)$ is the `loss' (or `error') value. It tells how well the network is performing. Given
+    a training example, the function uses the activation values in the output layer and returns
+    the error.
+\end{itemize}
+
+$a_j^{[i]}$ refers to \emph{the activation value of the $j^{th}$ neuron in
+the output layer, after the $i^{th}$ example is forward propagated through the 
+network}. 
+
+\vspace{5mm} %5mm vertical space
+
+$y_j^{[i]}$ on the other hand, is \emph{the target value for the
+neuron $j$ in the output layer, given a training example $i$}. 
+In other words, during training ... we may forward propagate an example $i$ through the network 
+and obtain different activations values in the output layer; we want activation $a_j^{[i]}$ to get as 
+close as possible to $y_j^{[i]}$. 
+
+\vspace{5mm} %5mm vertical space
+
+\end{document}

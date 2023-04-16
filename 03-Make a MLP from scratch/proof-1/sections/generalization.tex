@@ -1,0 +1,54 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+The Jacobian matrix we wrote earlier contains the gradients of all the
+weights in $W^{(out)}$ for \emph{only one} example. If a second training example goes 
+through the network, a new loss value is computed...  and a new gradient is computed
+for \emph{each} weight in $W^{(out)}$ during backpropagation. The new gradient of \emph{each} weight
+is \textbf{added} to the gradients of the same weight when backpropagation happened for the previous example.
+It's like they accummulate.
+
+\vspace{5mm} %5mm vertical space
+
+It looks like this matrix form, when $n$ training example go through the network:
+
+\[
+    \begin{bmatrix}
+        \sum_{i=1}^{n} a_1^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_1^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_1^{[i]}\delta_t^{[i]} \\
+        \sum_{i=1}^{n} a_2^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_2^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_2^{[i]}\delta_t^{[i]} \\
+        \vdots                                  & \vdots                                 & \ddots   & \vdots                                 \\
+        \sum_{i=1}^{n} a_d^{[i]}\delta_1^{[i]}  & \sum_{i=1}^{n} a_d^{[i]}\delta_2^{[i]} & \dots    & \sum_{i=1}^{n} a_d^{[i]}\delta_t^{[i]}
+    \end{bmatrix}
+\]
+
+\vspace{5mm} %5mm vertical space
+
+The above matrix can be deconstructed in two seperate matrices giving the following
+
+\vspace{5mm} %5mm vertical space
+
+\[
+    \begin{bmatrix}
+        a_1^{[1]}   & a_1^{[2]} & \dots  & a_1^{[n]} \\
+        a_2^{[1]}   & a_2^{[2]} & \dots  & a_2^{[n]} \\
+        \vdots      & \vdots    & \ddots & \vdots    \\
+        a_d^{[1]}   & a_d^{[2]} & \dots  & a_d^{[n]}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta_1^{[1]}   & \delta_2^{[1]} & \dots  & \delta_t^{[1]} \\
+        \delta_1^{[2]}   & \delta_2^{[2]} & \dots  & \delta_t^{[2]} \\
+        \vdots      & \vdots    & \ddots & \vdots    \\
+        \delta_1^{[n]}   & \delta_2^{[n]} & \dots  & \delta_t^{[n]} 
+    \end{bmatrix}
+    =
+    (A^{(h)})^T \delta^{(out)}
+\]
+
+\emph{Note: the superscript $[i]$ refers to a specific training example}.
+
+\vspace{5mm} %5mm vertical space
+
+This is the formula Dr. Raschka used in the book. I hope me walking you through
+my reasonning helped you reach a better understanding.
+\end{document}

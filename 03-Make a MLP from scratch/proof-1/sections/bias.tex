@@ -1,0 +1,44 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+Let's way we have ONE example again. What would the Jacobian matrix, look like, if we only looked at the bias weights?
+It would like this:
+
+\[
+    \begin{bmatrix}
+        \frac{\partial J(W)}{\partial w_{0,1}^{(out)}} & \frac{\partial J(W)}{\partial w_{0,2}^{(out)}} & \dots & \frac{\partial J(W)}{\partial w_{0,t}^{(out)}} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a_0^{(h)} \delta_1^{(out)}  & a_0^{(h)} \delta_2^{(out)}    & \dots  & a_0^{(h)} \delta_t^{(out)}   \\
+    \end{bmatrix}
+\]
+
+But since $a_0^{(h)} = 1$:
+
+\[
+    \begin{bmatrix}
+        a_0^{(h)} \delta_1^{(out)}  & a_0^{(h)} \delta_2^{(out)}    & \dots  & a_0^{(h)} \delta_t^{(out)}   \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \delta_1^{(out)}  & \delta_2^{(out)}    & \dots  & \delta_t^{(out)}   \\
+    \end{bmatrix}  
+\]
+
+So, when backpropagating \underline{ONE} example through $W^{(out)}$, the gradients in the bias weights are given by the above
+
+\vspace{5mm} %5mm vertical space
+
+We saw that as training examples go through the network, the gradients in the weights accumulate. Similarly, after $n$ examples those $\delta$ values
+accumulate. In vector form, that gives the following:
+
+\vspace{5mm} %5mm vertical space
+
+\[
+    \begin{bmatrix}
+        \sum_{i=1}^{n}\delta_1^{[i]}  & \sum_{i=1}^{n}\delta_2^{[i]}    & \dots  & \sum_{i=1}^{n}\delta_t^{[i]}   \\
+    \end{bmatrix}   
+\]
+\end{document}

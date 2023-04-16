@@ -1,0 +1,50 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} %Latex package to import graphics (i.e. images)
+\usepackage{forest} %Latex package to draw tree diagram
+\usepackage{subfigure} %Latex package to provide support for small figures
+\usepackage{multicol} %Latex package for split text is column
+\usepackage{amsmath} %Latex package for math stuff
+\usepackage{xcolor} %Latex package for color usage
+\usepackage[colorlinks,allcolors=blue]{hyperref} %for hyperlink support
+\usepackage{subfiles}
+
+\graphicspath{{images}}
+\title{Why is $ \frac{\partial J(W)}{\partial W_{i,j}^{(out)}} = (A^{(h)})^{T} \delta^{(out)}$ ?}
+\author{Kassi Bertrand}
+\date{January $19^{th}$, 2023}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\subfile{sections/introduction}
+
+\pagebreak
+\section{A general $m-d-t$ MLP}
+\subfile{sections/gen-mlp}
+
+\section{Gradients of $w_{0,t}^{(out)}$, $w_{1,t}^{(out)}$, ..., $w_{d,t}^{(out)}$}
+\subfile{sections/gradients-1}
+
+\pagebreak
+\section{Gradients of $w_{0,2}^{(out)}$, $w_{1,2}^{(out)}$, ..., $w_{d,2}^{(out)}$}
+\subfile{sections/gradients-2}
+
+\pagebreak
+\section{Gradients of $w_{0,1}^{(out)}$, $w_{1,1}^{(out)}$, ..., $w_{d,1}^{(out)}$}
+\subfile{sections/gradients-3}
+
+\pagebreak
+\section{Let's recap}
+\subfile{sections/recap}
+
+\pagebreak
+\section{Okay, but what if we have $n$ examples?}
+\subfile{sections/generalization}
+
+\pagebreak
+\section{Wait a minute! What about the bias?}
+\subfile{sections/bias}
+
+
+\end{document}
