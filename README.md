@@ -22,5 +22,7 @@ While learning about those architectures, I want to:
 - Their strengths and weaknesses
 - The math behind it?
 
+**NOTE: Step 1 starts at folder 05**
+
 # References, Books, etc. 📚
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-scikit-learn-TensorFlow/dp/1789955750)
