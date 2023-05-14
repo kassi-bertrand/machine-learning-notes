@@ -1,15 +1,15 @@
 # machine-learning-notes 🗈
 At the beginning of the Spring 2023, I was hired as an Undergraduate research assistant, and decided to use the opportunity to learn the basics of Deep Learning. 
 
-My goal is to explore and describe deep learning concepts in a language that is easy for me to **read** and **understand**. When I encounter difficult mathematical formulas, I will try my best to understand how it was obtained and make sure to detail my process towards understanding. It may be useful to someone else. I use this repo to store my notes and my learning journey.
+My goal is to explore and describe deep learning concepts in a language that is easy for me to **read** and **understand**. When I encounter difficult mathematical formulas, I will try my best to understand how it was obtained and make sure to detail my process towards understanding.
 
-The cool/scary thing is that... I **do not** know all the steps in advance. In other words, I am carving each new steps as I go. It's a journey. I will determine the next steps based on what I feel I must focus on, right now.
+The cool/scary thing is that... I **do not** know all the steps in advance, and **do not** claim that the order I will go about things is the best. In other words, I am carving each new steps as I go, based on what I **feel**, must focus on.
 
-So, this repository is me trying to document my learning experiences and journey. I believe it will be useful for me to look back, and be useful to others as well.
+So, **this repository is journal**. It is me trying to document **each** learning experiment I conduct. I believe it will be useful for me to look back. 
 
-Everything I experiment or try will be stored in the form of Jupyter notebooks, or python source files. Those artefacts will then be grouped in folders with meaningful names.
+Everything I experiment or try will be stored in the form of Jupyter notebooks (and/or python source files). Those artefacts are then grouped in folders with meaningful names.
 
-I guarantee that I will document my process by providing context, and just not paste stuff without reason, or assume you know everything beforehand.
+Each new folder, is a new experiment. Each folder has a number so you have an idea of the order they were created in.
 
 # References, Books, etc. 📚
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-scikit-learn-TensorFlow/dp/1789955750)
