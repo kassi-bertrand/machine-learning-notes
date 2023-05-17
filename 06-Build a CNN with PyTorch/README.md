@@ -22,8 +22,8 @@ For this folder, these are my goals:
 
 Here are the notebooks I plan on creating in this folder; order matters:
 
-1. `cnn-basics.ipynb`:
+1. `cnn-basics.ipynb`: Where I learn about fundamental concepts/terms around CNNs.
 
-2. `mnist-cnn.ipynb`:
+2. `mnist-cnn.ipynb`: Where I implement a CNN able to classify images from the MNIST dataset
 
-3. `smile-cnn.ipynb`:
+3. `smile-cnn.ipynb`: Where I implement a CNN able to classify facial images depending on whether the person is smiling or not.
