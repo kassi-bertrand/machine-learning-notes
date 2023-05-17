@@ -20,9 +20,10 @@ My supervisor said we are using PyTorch. Simple. 🙂
 
 In this folder, the goal is to familiarize with PyTorch. Below, the notebooks containing my notes as I go. They will be created in the order listed:
 
-1. `tensors.ipynb`: Where I learn to build and manipulate PyTorch tensors.
+# Notebooks 📓
+
+Here are the notebook(s) I create in this folder. Order matters.
+
+1. `tensors.ipynb`: Where I learn to create and manipulate PyTorch tensors.
 
 2. `micrograd.ipynb`: Where I learn to build a small differentiation engine from sratch, thanks to Andrej Kaparthy's [video](https://youtu.be/VMj-3S1tku0) on the subject.
-
-3. `mlp-pytorch.ipynb`: Where I write an MLP using PyTorch, and
-train it on the MNIST dataset. I am doing exactly what I did notebook in `mlp.ipynb` (folder 3), but using PyTorch instead.
