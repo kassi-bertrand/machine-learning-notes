@@ -20,7 +20,7 @@ Each new folder, is a new experiment. Each folder has a number so you have an id
 
 - [Andrej Karpathy](https://twitter.com/karpathy?s=20): I learn from his explanations on YouTube. He provides insights into certain complicated topics. I have admiration for people with deep knowledge on a subject who still take their time to educate in a friendly language. I want to become like that.
 
-- [Sebastian Raschka](https://twitter.com/rasbt?s=20): I read his book Machine Learning book, and found it to be very helpful.
+- [Sebastian Raschka](https://twitter.com/rasbt?s=20): I read his book Machine Learning book, and find it to be very helpful.
 
 - [Lillian Weng](https://twitter.com/lilianweng?s=20): Her blog is very beautiful, well organized, even though most of the content is over my head, haha 😂
 
