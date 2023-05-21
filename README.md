@@ -13,3 +13,5 @@ Each new folder, is a new experiment. Each folder has a number so you have an id
 
 # References, Books, etc. 📚
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-scikit-learn-TensorFlow/dp/1789955750)
+
+- [Andrej Karpathy's "Neural Networks: Zero to Hero" playlist](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
