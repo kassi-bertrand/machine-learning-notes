@@ -34,6 +34,6 @@ Here are the notebook I plan on creating in this folder; order matters:
 
 # Cool Resources
 
-During my exploration of RNNs, I found the following links to be useful:
+In my exploration of RNNs, I found the following links to be useful:
 
 - [The Unreasonable Effectiveness of Recurrent Neural Netowrks, by Andrej Karpathy](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
