@@ -18,9 +18,7 @@ For this folder, my goals are the following:
 
 - Implement an RNN for sentiment analysis
 
-- Implemenet an RNN for character-level modeling with LSTM cells
-
-- Learn to use gradient clipping to avoid exploding gradients.
+- Implement an RNN for character-level modeling with LSTM cells
 
 # Notebooks 📓
 
