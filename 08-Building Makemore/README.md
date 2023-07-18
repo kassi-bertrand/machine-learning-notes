@@ -22,3 +22,5 @@ I would like to complete one video per week, and giving myself time to reflect o
 Here are the notebook(s) I create in this folder of the journal.
 
 1. `part-1.ipynb` : Where we build Makemore using a Bigram model. One character predicts the next one with a lookup table of counts.
+
+2. `part-2.ipynb` :
