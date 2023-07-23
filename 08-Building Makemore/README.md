@@ -6,7 +6,7 @@ In `folder 07`, I learned about RNNs, LSTMs, and heard about character-level mod
 
 # Goal 🎯
 
-In this folder of the journal is to follow Andrej Karpathy's videos series on building Makemore. Using his 6-part playlist, I am going to **implement multiple character-level models** using the different types of neural networks mentioned below.
+In this folder, I follow Andrej Karpathy's videos series on building Makemore. Using his 6-part playlist, I am going to **implement multiple character-level models** using the different types of neural networks mentioned below.
 
 - Bigram
 - MLP
