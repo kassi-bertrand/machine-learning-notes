@@ -10,3 +10,6 @@ dataset/
 
 #Compressed Numpy files
 *.npz
+
+#DS_Store folders/file
+**/.DS_Store
