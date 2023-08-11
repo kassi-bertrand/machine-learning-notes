@@ -23,4 +23,6 @@ Here are the notebook(s) I create in this folder of the journal.
 
 1. `part-1.ipynb` : Where we build Makemore using a **Bigram** model. One character predicts the next one with a lookup table of counts.
 
-2. `part-2.ipynb` :
+2. `part-2.ipynb` : Where we build Makemore using an MLP described in [Bengio et al. 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf).
+
+3. `part-3.ipynb` :
