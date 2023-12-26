@@ -13,3 +13,6 @@ dataset/
 
 #DS_Store folders/file
 **/.DS_Store
+
+# VSCode folders
+.vscode
