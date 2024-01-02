@@ -1,0 +1,1 @@
+srun -N1 -G1 -c4 --mem=100G --container-remap-root --no-container-entrypoint --container-image /work/group/humingamelab/sqsh_images/pytorch.sqsh --container-mounts="${HOME}"/machine-learning-notes:/workdir --container-workdir /workdir --pty bash -i
