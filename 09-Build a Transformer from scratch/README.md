@@ -1,7 +1,7 @@
 # How to run NanoGPT
 
-# How did I train NanoGPT on "Shakespeare" dataset?
-I essentially followed the instructions on the NanoGPT repository. It's just that I performed the experiment on the compute cluster of my school. I followed these steps:
+# NanoGPT on "Shakespeare" dataset
+I followed the instructions on the [NanoGPT](https://github.com/karpathy/nanoGPT) repository. It's just that I performed the experiment on my school's compute cluster. I did the following:
 
 1. Acquired an interactive compute node using the following command:
 
@@ -46,4 +46,10 @@ And for hi
 ```
 The output does not make sense but, looks legit 😆🤷🏾‍♂️. I am happy I was able to reproduce the results.
 
-# How did I train NanoGPT on 
+# NanoGPT on openwebtext
+
+Here also, I followed instructions on the [NanoGPT](https://github.com/karpathy/nanoGPT), but performed the experiment on the school's compute cluster.
+
+~IN PROGRESS~
+1. I first put together a `.sbatch` file to describe the training job I want
+2. Submitted the job for execution.
