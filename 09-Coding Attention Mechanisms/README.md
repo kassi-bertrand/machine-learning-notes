@@ -1,4 +1,4 @@
-# Chapter 3: Coding Attention Mechanisms
+# Coding Attention Mechanisms
 
 This folder contains materials related to the implementation and explanation of attention mechanisms, particularly in the context of machine learning models like Transformers. The content is structured as both theory and hands-on code, providing a comprehensive understanding of self-attention and multi-head attention.
 
